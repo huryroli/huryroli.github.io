@@ -24,7 +24,6 @@ const countDown = setInterval(() => {
       resting = false;
       section.style.backgroundColor = "#2a9d8f";
       title.textContent = "Learning";
-      resting = true;
       beepSound.play();
   }
 }, 1000);
@@ -32,5 +31,5 @@ const countDown = setInterval(() => {
 function displayTime(second) {
   const min = Math.floor(second / 60);
   const sec = Math.floor(second % 60);
-  clock.innerHTML = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
+  clock.textContent = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
 }
