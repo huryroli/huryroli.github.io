@@ -1,32 +1,54 @@
-let seconds = 25 * 60;
 const clock = document.querySelector(".clock");
 const section = document.querySelector("section");
 const title = document.querySelector(".title");
-let resting = false;
+const startButton = document.querySelector(".start-btn");
+const setupScreen = document.querySelector(".setup-interval-screen");
+const clockFace = document.querySelector(".container");
+const learnedCounter = document.querySelector(".learned span");
+const restedCounter = document.querySelector(".rested span");
 
 const beepSound = new Audio("./assets/Ding-sound-effect.mp3");
 
-displayTime(seconds);
+let resting = false;
+let learned = 0;
+let rested = 0;
 
-const countDown = setInterval(() => {
-  seconds--;
+startButton.addEventListener('click', () => {
+  const learningTime = document.querySelector(".learning-time").value;
+  const restingTime = document.querySelector(".resting-time").value;
+
+  let seconds = learningTime * 60;
+
   displayTime(seconds);
-  if (seconds === 0 && resting == false) {
-    seconds = 5 * 60;
+
+  setupScreen.classList.add("fade-out");
+  clockFace.classList.remove("fade-out");
+  clockFace.classList.add("fade-in");
+
+  setInterval(() => {
+    seconds--;
     displayTime(seconds);
-    section.style.backgroundColor = "#e9c46a";
-    title.textContent = "Resting";
-    resting = true;
-    beepSound.play();
-  } else if (seconds === 0 && resting) {
-      seconds = 25 * 60;
-      displayTime(seconds);
-      resting = false;
-      section.style.backgroundColor = "#2a9d8f";
-      title.textContent = "Learning";
+    if (seconds === 0 && resting == false) {
       beepSound.play();
-  }
-}, 1000);
+      learned++;
+      seconds = restingTime * 60;
+      displayTime(seconds);
+      section.style.backgroundColor = "#4361EE";
+      title.textContent = "Resting";
+      learnedCounter.textContent = learned;
+      resting = true;
+    } else if (seconds === 0 && resting) {
+        beepSound.play(); 
+        rested++;
+        seconds = learningTime * 60;
+        displayTime(seconds);
+        resting = false;
+        section.style.backgroundColor = "#B5179E";
+        restedCounter.textContent = rested;
+        title.textContent = "Learning";
+    }
+  }, 1000);
+});
 
 function displayTime(second) {
   const min = Math.floor(second / 60);

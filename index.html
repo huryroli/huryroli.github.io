@@ -9,7 +9,31 @@
 </head>
 <body>
     <section>
-        <div class="container">
+        <div class="setup-interval-screen">
+            <div class="setup-container">
+                <div class="learning-minutes">
+                    <p>Learning minutes:</p>
+                    <input type="text" name="learning-minutes" class="learning-time" required>
+                </div>
+                <div class="resting-minutes">
+                    <p>Resting minutes:</p>
+                    <input type="text" name="resting-minutes" class="resting-time" required>
+                </div>
+                <button class="start-btn">Start</button>
+            </div>
+        </div>
+
+        <div class="container fade-out">
+            <div class="completed-cycles">
+                <div class="learned">
+                    <p>learned</p>
+                    <span>0</span>
+                </div>  
+                <div class="rested">
+                    <p>rested</p>
+                    <span>0</span>
+                </div>  
+            </div>
             <h1 class="title">Learning</h1>
             <div class="clock-container">
                 <div class="clock">00:00</div>

@@ -10,9 +10,33 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2a9d8f;
+    background-color: #B5179E;
     height: 100vh;
     width: 100%;
+}
+
+.completed-cycles .learned{
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.completed-cycles .rested{
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.learned,
+.rested {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    color: #f1faee;
+    font-weight: bold;
 }
 
 .container {
@@ -39,4 +63,84 @@ section {
     font-size: 10rem;
     font-family: "Poppins", sans-serif;
     color: #f1faee;
+}
+
+.setup-interval-screen {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.setup-container {
+    background-color: #f1faee;
+    padding: 50px 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.learning-minutes,
+.resting-minutes {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2em;
+    padding-bottom: 20px;
+    color: #B5179E;
+    font-weight: bold;
+}
+
+.learning-minutes input, 
+.resting-minutes input {
+    padding: 10px 25px 10px 25px;
+    border: none;
+    margin-top: 10px;
+    background-color: transparent;
+    border-bottom: 1px solid #B5179E;
+    text-align: center;
+    color: #B5179E;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.learning-minutes input:focus, 
+.resting-minutes input:focus {
+    outline: none;
+}
+
+.start-btn {
+    background-color: #f1faee;
+    color: #B5179E;
+    border: 2px solid #B5179E;
+    border-radius: 25px;
+    padding: 10px 10px;
+    margin-top: 15px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+
+}
+
+.start-btn:hover {
+    background-color: #B5179E;
+    color: #f1faee;
+    border: 2px solid #f1faee;
+    border-radius: 25px;
+    padding: 10px 10px;
+    margin-top: 15px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fade-in {
+    opacity: 1;
+    pointer-events: all;
 }
