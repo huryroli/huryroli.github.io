@@ -1,3 +1,6 @@
+//! make it responsive
+//? create a flutter app
+
 const clock = document.querySelector(".clock");
 const section = document.querySelector("section");
 const title = document.querySelector(".title");
@@ -20,7 +23,7 @@ startButton.addEventListener('click', () => {
   let seconds = learningTime * 60;
 
   displayTime(seconds);
-
+ 
   setupScreen.classList.add("fade-out");
   clockFace.classList.remove("fade-out");
   clockFace.classList.add("fade-in");
@@ -45,7 +48,7 @@ startButton.addEventListener('click', () => {
         resting = false;
         section.style.backgroundColor = "#B5179E";
         restedCounter.textContent = rested;
-        title.textContent = "Learning";
+        title.textContent = "Focusing";
     }
   }, 1000);
 });

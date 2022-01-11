@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <section>
         <div class="setup-interval-screen">
             <div class="setup-container">
                 <div class="learning-minutes">
-                    <p>Learning minutes:</p>
+                    <p>Focusing minutes:</p>
                     <input type="text" name="learning-minutes" class="learning-time" required>
                 </div>
                 <div class="resting-minutes">
@@ -20,13 +21,37 @@
                     <input type="text" name="resting-minutes" class="resting-time" required>
                 </div>
                 <button class="start-btn">Start</button>
+                <button class="info">&#9432;</button>
+            </div>
+            <div class="info-div">
+                <p>
+                    The Pomodoro Technique was developed in 
+                    the late 1980s by then university student 
+                    Francesco Cirillo. Cirillo was struggling 
+                    to focus on his studies and complete 
+                    assignments. Feeling overwhelmed, he 
+                    asked himself to commit to just 10 minutes 
+                    of focused study time. Encouraged by the 
+                    challenge, he found a tomato (pomodoro in 
+                    Italian) shaped kitchen timer, and the 
+                    Pomodoro technique was born.
+                    <br>
+                    <br>
+
+                    To start using the method:
+                    <ul>
+                        <li>Set a focus time.</li>
+                        <li>Set a resting time.</li>
+                        <li>Start.</li>
+                    </ul>
+                </p>
             </div>
         </div>
 
         <div class="container fade-out">
             <div class="completed-cycles">
                 <div class="learned">
-                    <p>learned</p>
+                    <p>focused</p>
                     <span>0</span>
                 </div>  
                 <div class="rested">
@@ -34,12 +59,29 @@
                     <span>0</span>
                 </div>  
             </div>
-            <h1 class="title">Learning</h1>
+            <h1 class="title">Focusing</h1>
             <div class="clock-container">
                 <div class="clock">00:00</div>
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function(){
+            $(".info-div").hide();
+            $(".info").hover(function(){
+                $(".info-div").show();
+            }, function(){
+                $(".info-div").hide();
+            });
+
+            $(document).keypress(function(e) {
+                const key = e.which;
+                if (key == 13) {
+                    $(".start-btn").click();
+                }
+            });
+        });
+    </script>
     <script src="index.js"></script>
 </body>
 </html>

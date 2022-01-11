@@ -15,6 +15,36 @@ section {
     width: 100%;
 }
 
+.info {
+    position: absolute;
+    top: -10%;
+    right: -6%;
+    outline: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #f1faee;
+    cursor: pointer;
+}
+
+.info-div {
+    background-color: #f1faee;
+    position: absolute;
+    z-index: 2;
+    top: -15%;
+    right: -52%;
+    height: fit-content;
+    width: 30vh;
+    border-radius: 20px;
+    padding: 5%;
+    font-family: "Poppins", sans-serif;
+}
+
+.info-div ul {
+    position: relative;
+    left: 15%;
+}
+
 .completed-cycles .learned{
     position: absolute;
     top: 5%;
